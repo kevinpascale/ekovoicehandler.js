@@ -7,7 +7,7 @@
 
   const voiceHandler = new Artyom(); //create artyom object
 
-  function startRec(lang){   //string & boolean parameters
+  function startRec(lang){   //string parameter for language 
 
     console.log("activating vocal commands");
     voiceHandler.fatality();  //stop any other recognition
