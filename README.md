@@ -1,7 +1,7 @@
 # ekovoicehandler.js
 A javascript library that allows eko-studio users to add vocal commands instead of using traditional button-click interaction.
 
-TABLE OF CONTENTS
+# TABLE OF CONTENTS
 
 1. [ Description. ](#desc)
 2. [ How to use. ](#usage)
