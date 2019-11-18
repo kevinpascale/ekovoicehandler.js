@@ -73,8 +73,10 @@
   startRec(language);
   switch (actTime) {
     case "decision":
-      player.on('nodestart',function(){voiceHandler.dontObey();
-      console.log("comandi disattivati");});
+      player.on('nodestart',function(){
+      voiceHandler.dontObey();
+      voiceHandler.fatality();
+      console.log("comandi e voiceRecognition disattivati");});
       player.on('decision.start',function(){
         voiceHandler.obey();
         voiceHandler.restart();
