@@ -7,7 +7,7 @@
 
   const voiceHandler = new Artyom(); //create artyom object
 
-  function startRec(lang){   //string parameter for language 
+  function startRec(lang){   //string parameter for language
 
     console.log("activating vocal commands");
     voiceHandler.fatality();  //stop any other recognition
@@ -34,6 +34,7 @@
 
         player.seek(idNodo); //append the node to the playlist
 
+
     }
   };
     voiceHandler.addCommands(command);
@@ -52,14 +53,18 @@
    var nodi = player.repository.get(getCurrentNodeChildren()); //oppure getnodechildren con parametro nodo corrente
    var keywords = null;
    var nodofiglio = null;
+   //var changeNodeonVoice = null;
    for(var i = 0;i < nodi.length; i++){
 
      console.log(nodi[i]);
      console.log("idnodofiglio"+i+":",nodi[i].data.id);
      keywords = nodi[i].data.studio.keywords;
+     //changeNodeonVoice = nodi[i].data.studio.obeyonvoice;
      nodofiglio = nodi[i];
 
+     //if(changeNodeonVoice == "yes")
      if(keywords != undefined) createCommand(keywords,nodofiglio);
+
 
    }
   }
@@ -68,10 +73,12 @@
   startRec(language);
   switch (actTime) {
     case "decision":
-      player.on('nodestart',function(){voiceHandler.dontObey();});
+      player.on('nodestart',function(){voiceHandler.fatality();
+      console.log("comandi disattivati");});
       player.on('decision.start',function(){
-        voiceHandler.obey();
+        voiceHandler.restart();
         voiceHandler.emptyCommands();
+        console.log("comandi attivati e resettati");
         addVocalCommands();
       });
       break;
