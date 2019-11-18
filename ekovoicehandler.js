@@ -78,8 +78,9 @@
       voiceHandler.fatality();
       console.log("comandi e voiceRecognition disattivati");});
       player.on('decision.start',function(){
-    
-        voiceHandler.restart();
+
+        //voiceHandler.restart();
+        startRec(language);
         voiceHandler.obey();
         voiceHandler.emptyCommands();
         console.log("comandi attivati e resettati");
