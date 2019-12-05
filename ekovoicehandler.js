@@ -27,7 +27,7 @@
 
    voiceHandler.fatality();
    setTimeout(()=>{UserDictation.start();},200);
-   setTimeout(()=>{UserDictation.stop();}, 100000);
+   //setTimeout(()=>{UserDictation.stop();}, 100000);
 
   }
 
