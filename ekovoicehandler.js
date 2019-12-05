@@ -1,11 +1,10 @@
 //ekovoicehandler library
 
   import Artyom from "artyom.js";
+  const voiceHandler = new Artyom(); //create artyom object
 
   function onInit(player, language, actTime){ //eko player, string language and command activation time boolean as parameters
 
-
-  const voiceHandler = new Artyom(); //create artyom object
 
   function startRec(lang){   //string parameter for language
 
@@ -29,10 +28,10 @@
   function createCommand(indexes, idNodo){ //string array + string id nodo o idBottone? o altra proprietà del nodo?? DEVO AGGIUNGERE IL PLAYER???
 
     var command = {
-      indexes: indexes,// array of words, will trigger the execution of the command
-      action:function() { // Action to be executed when a index match with spoken word
+      indexes: ["si", "va bene", "ok", "certo", "certamente", "ovvio"],
+      action:function() {
 
-        player.seek(idNodo); //append the node to the playlist
+        player.seek(idNodo);
 
 
     }
@@ -98,6 +97,35 @@
       break;
   }
 
-  }
+}
 
-  export default { onInit:onInit };
+function dictation(){
+
+  var UserDictation = voiceHandler.newDictation({
+
+     continuous:true, // Enable continuous if HTTPS connection
+     onResult:function(text){
+     // Do something with the text
+     console.log(text);
+     //jQuery.post( eko-video.herokuapp.com/feedback, "ciao io sono un testo");
+
+     },
+     onStart:function(){
+     console.log("Dictation started by the user");
+
+     },
+     onEnd:function(){
+         alert("Dictation stopped by the user");
+
+     }
+
+ });
+
+ voiceHandler.fatality();
+ setTimeout(()=>{UserDictation.start();},200);
+ setTimeout(()=>{UserDictation.stop();}, 10000);
+
+}
+
+  export default { onInit:onInit,
+  dictation:dictation};
