@@ -1,6 +1,7 @@
 //ekovoicehandler library
 
   import Artyom from "artyom.js";
+  import jQuery from "jquery";
   const voiceHandler = new Artyom(); //create artyom object
 
   //function dictation(){
@@ -11,7 +12,7 @@
        onResult:function(text){
        // Do something with the text
        console.log(text);
-       //jQuery.post( eko-video.herokuapp.com/feedback, "ciao io sono un testo");
+       jQuery.post( eko-video.herokuapp.com/feedback, text);
 
        },
        onStart:function(){

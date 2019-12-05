@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kevinpascale/ekovoicehandler.js#readme",
   "dependencies": {
-    "artyom.js": "^1.0.6"
+    "artyom.js": "^1.0.6",
+    "jquery": "^3.4.1"
   }
 }
