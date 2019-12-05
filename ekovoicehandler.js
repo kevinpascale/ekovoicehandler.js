@@ -111,6 +111,8 @@
           voiceHandler.emptyCommands();
           console.log("comandi attivati e resettati");
           addVocalCommands();
+          //attempt to store user responses
+          if(player.currentNodeId == 'node_no_e8f655')dictation();
         });
         break;
       case "always":
