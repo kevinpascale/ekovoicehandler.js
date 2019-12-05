@@ -3,7 +3,7 @@
   import Artyom from "artyom.js";
   const voiceHandler = new Artyom(); //create artyom object
 
-  function dictation(){
+  //function dictation(){
 
     var UserDictation = voiceHandler.newDictation({
 
@@ -25,11 +25,11 @@
 
    });
 
-   voiceHandler.fatality();
+   /*voiceHandler.fatality();
    setTimeout(()=>{UserDictation.start();},200);
    //setTimeout(()=>{UserDictation.stop();}, 100000);
 
-  }
+ }*/
 
   function onInit(player, language, actTime){ //eko player, string language and command activation time boolean as parameters
 
@@ -114,8 +114,11 @@
           console.log("comandi attivati e resettati");
           addVocalCommands();}
           //attempt to store user responses
-          else dictation();
+          else UserDictation.start();
         });
+
+        player.on('nodeend', ()=> {UserDictation.stop()});
+
         break;
       case "always":
         player.on('nodestart',function(){
