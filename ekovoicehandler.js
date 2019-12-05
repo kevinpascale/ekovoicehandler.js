@@ -126,9 +126,6 @@
 
     }
 
-    export default { onInit:onInit };
-
-
 
   export default { onInit:onInit,
   dictation:dictation};
