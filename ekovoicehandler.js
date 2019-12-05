@@ -7,7 +7,7 @@
 
     var UserDictation = voiceHandler.newDictation({
 
-       continuous:true, // Enable continuous if HTTPS connection
+       continuous:false, // Enable continuous if HTTPS connection
        onResult:function(text){
        // Do something with the text
        console.log(text);
