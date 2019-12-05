@@ -7,7 +7,7 @@
 
     var UserDictation = voiceHandler.newDictation({
 
-       continuous:false, // Enable continuous if HTTPS connection
+       continuous:true, // Enable continuous if HTTPS connection
        onResult:function(text){
        // Do something with the text
        console.log(text);
@@ -99,20 +99,22 @@
     startRec(language);
     switch (actTime) {
       case "decision":
+
         player.on('nodestart',function(){
         voiceHandler.dontObey();
         voiceHandler.fatality();
         console.log("comandi e voiceRecognition disattivati");});
-        player.on('decision.start',function(){
 
+        player.on('decision.start',function(){
+          if(player.currentNodeId != 'node_no_e8f655'){
           //voiceHandler.restart();
           startRec(language);
           voiceHandler.obey();
           voiceHandler.emptyCommands();
           console.log("comandi attivati e resettati");
-          addVocalCommands();
+          addVocalCommands();}
           //attempt to store user responses
-          if(player.currentNodeId == 'node_no_e8f655')dictation();
+          else dictation();
         });
         break;
       case "always":
