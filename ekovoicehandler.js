@@ -117,7 +117,7 @@
           else UserDictation.start();
         });
 
-        player.on('nodeend', ()=> {UserDictation.stop()});
+        player.on('nodeend', ()=> {UserDictation.stop();});
 
         break;
       case "always":
@@ -134,6 +134,4 @@
     }
 
 
-  export default { onInit:onInit,
-  //dictation:dictation
-};
+  export default { onInit:onInit };
