@@ -12,7 +12,7 @@
        onResult:function(text){
        // Do something with the text
        console.log(text);
-       jQuery.post( "eko-video.herokuapp.com/feedback" , text);
+       jQuery.post( "https://eko-video.herokuapp.com/feedback" , text);
 
        },
        onStart:function(){
