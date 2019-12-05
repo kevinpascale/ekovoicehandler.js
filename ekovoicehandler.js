@@ -135,4 +135,5 @@
 
 
   export default { onInit:onInit,
-  dictation:dictation};
+  //dictation:dictation
+};
