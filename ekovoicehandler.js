@@ -77,7 +77,7 @@
 
         // Do something with the text
          console.log(text);
-         jQuery.post( "https://eko-video.herokuapp.com/feedback" , {content:text});
+         //jQuery.post( "https://eko-video.herokuapp.com/feedback" , {content:text});
 
        },
 
@@ -112,7 +112,7 @@
           addVocalCommands();}
           //attempt to store user responses
           else{
-            
+
               var UserDictation = voiceHandler.newDictation(settings);
               UserDictation.start();
          }
