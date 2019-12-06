@@ -4,33 +4,8 @@
   import jQuery from "jquery";
   const voiceHandler = new Artyom(); //create artyom object
 
-  //function dictation(){
 
-    var UserDictation = voiceHandler.newDictation({
 
-       continuous:true, // Enable continuous if HTTPS connection
-       onResult:function(text){
-       // Do something with the text
-       console.log(text);
-       jQuery.post( "https://eko-video.herokuapp.com/feedback" , {content:text});
-
-       },
-       onStart:function(){
-       console.log("Dictation started by the user");
-
-       },
-       onEnd:function(){
-           alert("Dictation stopped by the user");
-
-       }
-
-   });
-
-   /*voiceHandler.fatality();
-   setTimeout(()=>{UserDictation.start();},200);
-   //setTimeout(()=>{UserDictation.stop();}, 100000);
-
- }*/
 
   function onInit(player, language, actTime){ //eko player, string language and command activation time boolean as parameters
 
@@ -96,6 +71,27 @@
      }
     }
 
+    var settings = {
+      continuous:true, // Enable continuous if HTTPS connection
+      onResult:function(text){
+
+        // Do something with the text
+         console.log(text);
+         jQuery.post( "https://eko-video.herokuapp.com/feedback" , {content:text});
+
+       },
+
+        onStart:function(){
+          console.log("Dictation started by the user");
+        },
+
+         onEnd:function(){
+
+           console.log("Dictation stopped");
+          }
+
+     }
+
 
     startRec(language);
     switch (actTime) {
@@ -115,7 +111,11 @@
           console.log("comandi attivati e resettati");
           addVocalCommands();}
           //attempt to store user responses
-          else UserDictation.start();
+          else{
+            
+              var UserDictation = voiceHandler.newDictation(settings);
+              UserDictation.start();
+         }
         });
 
         player.on('nodeend', ()=> {UserDictation.stop();});
