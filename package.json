@@ -1,6 +1,6 @@
 {
   "name": "ekovoicehandler",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "A javascript library that allows eko-studio users to add vocal commands instead of using traditional button-click interaction.",
   "main": "ekovoicehandler.js",
   "scripts": {
