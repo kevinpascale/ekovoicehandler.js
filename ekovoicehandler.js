@@ -92,7 +92,7 @@
 
      }
 
-
+    var UserDictation = null;
     startRec(language);
     switch (actTime) {
       case "decision":
@@ -113,12 +113,12 @@
           //attempt to store user responses
           else{
 
-              var UserDictation = voiceHandler.newDictation(settings);
+              UserDictation = voiceHandler.newDictation(settings);
               UserDictation.start();
          }
         });
 
-        player.on('nodeend', ()=> {if(UserDictation != undefined) UserDictation.stop();}); //why not decision.stop 
+        player.on('nodeend', ()=> {if(UserDictation != null) UserDictation.stop();}); //why not decision.stop
 
         break;
       case "always":
