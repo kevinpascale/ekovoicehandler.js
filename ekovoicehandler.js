@@ -118,7 +118,7 @@
          }
         });
 
-        player.on('nodeend', ()=> {UserDictation.stop();});
+        player.on('nodeend', ()=> {if(UserDictation != undefined) UserDictation.stop();}); //why not decision.stop 
 
         break;
       case "always":
